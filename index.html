@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeMate · AI Companion</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js for beautiful charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- Canvas confetti for celebrations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Header with AI companion avatar -->
+    <header class="glass">
+      <div class="header-content">
+        <h1 class="logo">✨ LifeMate</h1>
+        <div class="ai-avatar">🤖</div>
+      </div>
+      <p class="ai-greeting" id="aiGreeting">Hello! I'm your companion. How can I help today?</p>
+    </header>
+
+    <!-- Main dashboard grid -->
+    <div class="dashboard">
+      <!-- Habits card -->
+      <div class="card" id="habits-card">
+        <h2>🧘 Habits <span class="streak-badge" id="totalStreak">🔥 0</span></h2>
+        <div class="habit-list" id="habitList"></div>
+        <div class="add-habit">
+          <input type="text" id="newHabitInput" placeholder="New habit...">
+          <button id="addHabitBtn">➕</button>
+        </div>
+        <button class="ai-tip-btn" data-topic="habits">💡 AI encouragement</button>
+      </div>
+
+      <!-- Money card -->
+      <div class="card" id="money-card">
+        <h2>💰 Money</h2>
+        <div class="balance">Balance: $<span id="balance">0</span></div>
+        <div class="income-expense">
+          <span>📈 <span id="totalIncome">0</span></span>
+          <span>📉 <span id="totalExpense">0</span></span>
+        </div>
+        <canvas id="moneyChart" width="300" height="150"></canvas>
+        <div class="add-transaction">
+          <input type="text" id="transDesc" placeholder="Description">
+          <input type="number" id="transAmount" placeholder="Amount">
+          <select id="transType">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <button id="addTransBtn">Add</button>
+        </div>
+        <button class="ai-tip-btn" data-topic="money">💡 AI spending tip</button>
+      </div>
+
+      <!-- Goals card -->
+      <div class="card" id="goals-card">
+        <h2>🎯 Goals</h2>
+        <div id="goalList"></div>
+        <div class="add-goal">
+          <input type="text" id="goalName" placeholder="Goal name">
+          <input type="number" id="goalProgress" placeholder="% (0-100)" min="0" max="100">
+          <button id="addGoalBtn">➕</button>
+        </div>
+        <button class="ai-tip-btn" data-topic="goals">💡 AI motivation</button>
+      </div>
+
+      <!-- AI Companion card -->
+      <div class="card" id="ai-card">
+        <h2>🤖 AI Companion</h2>
+        <div class="ai-message-box" id="aiMessage">Click any 💡 button for insights...</div>
+        <div class="ai-actions">
+          <button id="weeklySummaryBtn">📅 Weekly summary</button>
+          <button id="dailyMotivationBtn">✨ Daily motivation</button>
+        </div>
+      </div>
+
+      <!-- Reflection card -->
+      <div class="card" id="reflection-card">
+        <h2>📝 Reflection</h2>
+        <textarea id="reflectionInput" placeholder="Write your thoughts..."></textarea>
+        <button id="saveReflectionBtn">Save note</button>
+        <button id="aiPromptBtn">🔮 AI prompt</button>
+        <div class="past-reflections" id="pastReflections"></div>
+      </div>
+
+      <!-- Export card -->
+      <div class="card" id="export-card">
+        <h2>📤 Export data</h2>
+        <button id="exportCsvBtn">⬇️ Download CSV</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
